@@ -23,6 +23,7 @@ const networkIds: any = {
   mantleSepolia: 5003,
   polygonSepolia: 80002,
   curtisTestnet: 33111,
+  mantaSepolia: 3441006,
   11155111: 'sepolia',
   11155420: 'optimismSepolia',
   84532: 'baseSepolia',
@@ -30,6 +31,7 @@ const networkIds: any = {
   421614: 'arbitrumSepolia',
   5003: 'mantleSepolia',
   33111: 'curtisTestnet',
+  3441006: 'mantaSepolia',
 }
 
 // const enshrined: any = {
@@ -267,9 +269,10 @@ const networks: Record<any, DeployDisputeNetworkConfig> = {
     network: 'curtisTestnet',
     chainId: networkIds.curtisTestnet,
     proverContractAddress: '',
-    hyperProverContractAddress: '',
-    intentSourceAddress: '',
-    inboxAddress: '',
+    hyperProverContractAddress: '0x3e27B444B5E543cbFF449115DE4a36705a891F82',
+    metalayerProverContractAddress: '0x05Ec3E181426a978327856097A6FB5aE9324296A',
+    intentSourceAddress: '0xD7f316e387107b90dFBBDCb07bEC7280A729ce88',
+    inboxAddress: '0x04fA0CeB5eaAf33084DDd4A7cda74F01767B4507',
     intentSource: {
       counter: 0,
     },
@@ -278,6 +281,32 @@ const networks: Record<any, DeployDisputeNetworkConfig> = {
     metalayerRouterAddress: '0xC41de2A4243e4304813c36Cd8952366DCb36106a',
     gasLimit: 30000000,
 
+    proving: {
+      mechanism: provingMechanisms.cannon,
+      l1BlockAddress: '0x4200000000000000000000000000000000000015',
+      l2l1MessageParserAddress: '0x4200000000000000000000000000000000000016',
+      outputRootVersionNumber: 0,
+      settlementChain: {
+        network: 'sepolia',
+        id: networkIds.sepolia,
+        contract: '0x05F9613aDB30026FFd634f38e5C4dFd30a197Fa1',
+      },
+    },
+  },
+  mantaSepolia: {
+    network: 'mantaSepolia',
+    chainId: networkIds.mantaSepolia,
+    proverContractAddress: '',
+    hyperProverContractAddress: '',
+    intentSourceAddress: '',
+    inboxAddress: '',
+    intentSource: {
+      counter: 0,
+    },
+    usdcAddress: '0x6E4D0AEC0fd8081E1Fd1f17B9769600efC72B51c',
+    hyperlaneMailboxAddress: '0xFD9e12938e57bF87980e474116B11C39Cea062Af',
+    metalayerRouterAddress: '0xC41de2A4243e4304813c36Cd8952366DCb36106a',
+    gasLimit: 30000000,
     proving: {
       mechanism: provingMechanisms.cannon,
       l1BlockAddress: '0x4200000000000000000000000000000000000015',

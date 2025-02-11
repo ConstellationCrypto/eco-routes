@@ -22,8 +22,10 @@ deployProtocol(
     // ecoTestnetChainConfiguration,
     SepoliaChainConfigs.arbitrumSepoliaChainConfiguration,
     SepoliaChainConfigs.mantleSepoliaChainConfiguration,
+    SepoliaChainConfigs.curtisTestnetChainConfiguration,
+    SepoliaChainConfigs.mantaSepoliaChainConfiguration,
   ],
-  { isSolvingPublic: true, deployPre: true },
+  { isSolvingPublic: true, deployPre: false },
 ).catch((error) => {
   console.error(error)
   process.exitCode = 1

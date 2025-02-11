@@ -124,6 +124,11 @@ const config: HardhatUserConfig = {
       url: `https://curtis.rpc.caldera.xyz/http`,
       accounts: [DEPLOYER_PRIVATE_KEY],
     },
+    mantaSepolia: {
+      chainId: 3441006,
+      url: `https://pacific-rpc.sepolia-testnet.manta.network/http`,
+      accounts: [DEPLOYER_PRIVATE_KEY],
+    },
   },
   etherscan: {
     apiKey: {
@@ -143,6 +148,7 @@ const config: HardhatUserConfig = {
       polygon: process.env.POLYGON_SCAN_API_KEY || '',
       polygonSepolia: process.env.POLYGON_SCAN_API_KEY || '',
       curtisTestnet: 'DummyKey',
+      mantaSepolia: 'DummyKey',
     },
     customChains: [
       {
@@ -233,6 +239,14 @@ const config: HardhatUserConfig = {
           browserURL: 'https://curtis.explorer.caldera.xyz',
         },
       },
+      {
+        network: 'mantaSepolia',
+        chainId: 3441006,
+        urls: {
+          apiURL: 'https://manta-sepolia.rpc.caldera.xyz/http',
+          browserURL: 'https://manta-sepolia.explorer.caldera.xyz'
+        }
+      }
     ],
   },
   mocha: {

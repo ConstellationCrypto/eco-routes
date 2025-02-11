@@ -1,7 +1,6 @@
 import {
   arbitrumChainConfiguration,
   baseChainConfiguration,
-  curtisTestnetChainConfiguration,
   mantleChainConfiguration,
   optimismChainConfiguration,
 } from './mainnet.config'
@@ -10,6 +9,8 @@ import {
   baseSepoliaChainConfiguration,
   mantleSepoliaChainConfiguration,
   optimismSepoliaChainConfiguration,
+  curtisTestnetChainConfiguration,
+  mantaSepoliaChainConfiguration,
 } from './sepolia.config'
 
 export const SepoliaChainConfigs = {
@@ -18,6 +19,8 @@ export const SepoliaChainConfigs = {
   // ecoTestnetChainConfiguration,
   arbitrumSepoliaChainConfiguration,
   mantleSepoliaChainConfiguration,
+  curtisTestnetChainConfiguration,
+  mantaSepoliaChainConfiguration
 }
 
 export const MainnetChainConfigs = {

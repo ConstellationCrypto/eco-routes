@@ -21,7 +21,6 @@ deployProtocol(
     // MainnetChainConfigs.helixChainConfiguration,
     MainnetChainConfigs.arbitrumChainConfiguration,
     MainnetChainConfigs.mantleChainConfiguration,
-    MainnetChainConfigs.curtisTestnetChainConfiguration,
   ],
   { isSolvingPublic: true, deployPre: true },
 ).catch((error) => {

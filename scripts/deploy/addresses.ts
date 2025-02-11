@@ -30,6 +30,7 @@ export function createFile(path: string = jsonFilePath) {
 
 export function getJsonFromFile<T>(path: string = jsonFilePath): T {
   if (fs.existsSync(path)) {
+    console.log(path)
     const fileContent = fs.readFileSync(path, 'utf8')
     return JSON.parse(fileContent)
   } else {

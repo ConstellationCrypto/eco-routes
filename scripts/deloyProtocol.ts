@@ -101,6 +101,8 @@ export async function deployProtocol(
   //   await deployProver(salt, deployNetwork, singletonDeployer, proverConfig)
   // }
 
+  console.log("is")
+  console.log(deployNetwork)
   if (isZeroAddress(protocolDeploy.intentSourceAddress)) {
     protocolDeploy.intentSourceAddress = (await deployIntentSource(
       deployNetwork,
@@ -109,6 +111,7 @@ export async function deployProtocol(
     )) as Hex
   }
 
+  console.log("ibox")
   if (isZeroAddress(protocolDeploy.inboxAddress)) {
     protocolDeploy.inboxAddress = (await deployInbox(
       deployNetwork,
@@ -199,6 +202,7 @@ export async function deployIntentSource(
   const intentSourceFactory = await ethers.getContractFactory(contractName)
   const intentSourceTx = await intentSourceFactory.getDeployTransaction(args[0])
 
+  console.log("isd")
   const deployTx = await singletonDeployer.deploy(
     intentSourceTx.data,
     deploySalt,
