@@ -67,3 +67,29 @@ export const arbitrumSepoliaChainConfiguration: DeployNetworkConfig = {
     finalityDelaySeconds: 0,
   },
 }
+
+export const curtisTestnetChainConfiguration: DeployNetworkConfig = {
+  chainId: networks.curtisTestnet.chainId, // chainId
+  chainConfiguration: {
+    provingMechanism: networks.curtisTestnet.proving.mechanism, // provingMechanism
+    settlementChainId: networks.curtisTestnet.proving.settlementChain.id, // settlementChainId
+    settlementContract: networks.curtisTestnet.proving.settlementChain.contract, // settlementContract e.g DisputGameFactory or L2OutputOracle.
+    blockhashOracle: networks.curtisTestnet.proving.l1BlockAddress, // blockhashOracle
+    outputRootVersionNumber:
+      networks.curtisTestnet.proving.outputRootVersionNumber, // outputRootVersionNumber
+    finalityDelaySeconds: 0,
+  },
+}
+
+export const mantaSepoliaChainConfiguration: DeployNetworkConfig = {
+  chainId: networks.mantaSepolia.chainId, // chainId
+  chainConfiguration: {
+    provingMechanism: networks.mantaSepolia.proving.mechanism, // provingMechanism
+    settlementChainId: networks.mantaSepolia.proving.settlementChain.id, // settlementChainId
+    settlementContract: networks.mantaSepolia.proving.settlementChain.contract, // settlementContract e.g DisputGameFactory or L2OutputOracle.
+    blockhashOracle: networks.mantaSepolia.proving.l1BlockAddress, // blockhashOracle
+    outputRootVersionNumber:
+      networks.mantaSepolia.proving.outputRootVersionNumber, // outputRootVersionNumber
+    finalityDelaySeconds: 0,
+  },
+}

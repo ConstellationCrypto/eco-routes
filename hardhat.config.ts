@@ -119,6 +119,16 @@ const config: HardhatUserConfig = {
       url: `https://polygon-amoy.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: [DEPLOYER_PRIVATE_KEY],
     },
+    curtisTestnet: {
+      chainId: 33111,
+      url: `https://curtis.rpc.caldera.xyz/http`,
+      accounts: [DEPLOYER_PRIVATE_KEY],
+    },
+    mantaSepolia: {
+      chainId: 3441006,
+      url: `https://pacific-rpc.sepolia-testnet.manta.network/http`,
+      accounts: [DEPLOYER_PRIVATE_KEY],
+    },
   },
   etherscan: {
     apiKey: {
@@ -137,6 +147,8 @@ const config: HardhatUserConfig = {
       mantleSepolia: process.env.MANTLE_SCAN_API_KEY || '',
       polygon: process.env.POLYGON_SCAN_API_KEY || '',
       polygonSepolia: process.env.POLYGON_SCAN_API_KEY || '',
+      curtisTestnet: 'DummyKey',
+      mantaSepolia: 'DummyKey',
     },
     customChains: [
       {
@@ -219,6 +231,22 @@ const config: HardhatUserConfig = {
           browserURL: 'https://amoy.polygonscan.com/',
         },
       },
+      {
+        network: 'curtisTestnet',
+        chainId: 33111,
+        urls: {
+          apiURL: 'https://curtis.explorer.caldera.xyz/api',
+          browserURL: 'https://curtis.explorer.caldera.xyz',
+        },
+      },
+      {
+        network: 'mantaSepolia',
+        chainId: 3441006,
+        urls: {
+          apiURL: 'https://manta-sepolia.explorer.caldera.xyz/api',
+          browserURL: 'https://manta-sepolia.explorer.caldera.xyz'
+        }
+      }
     ],
   },
   mocha: {
