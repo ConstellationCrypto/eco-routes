@@ -213,6 +213,10 @@ export function getDeployNetwork(
       return sepoliaNetworks.polygonSepolia
     case 'abstractTestnet':
       return sepoliaNetworks.abstractTestnet
+    case 'curtisTestnet':
+      return sepoliaNetworks.curtisTestnet
+    case 'mantaSepolia':
+      return sepoliaNetworks.mantaSepolia
   }
   throw new Error('Network not found')
 }

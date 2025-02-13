@@ -7,6 +7,9 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
+import "./interfaces/IInbox.sol";
+import "./interfaces/IMetalayerRouter.sol";
+
 import {IInbox} from "./interfaces/IInbox.sol";
 import {Intent, Route, Call, TokenAmount} from "./types/Intent.sol";
 import {Semver} from "./libs/Semver.sol";
@@ -29,6 +32,9 @@ contract Inbox is IInbox, Ownable, Semver {
 
     // address of local hyperlane mailbox
     address public mailbox;
+
+    // address of local metalayer router
+    address public router;
 
     // Is solving public
     bool public isSolvingPublic;
@@ -344,6 +350,18 @@ contract Inbox is IInbox, Ownable, Semver {
     }
 
     /**
+     * @notice allows the owner to set the metalayer router
+     * @param _router the address of the router
+     * @dev this can only be called once, to initialize the router, and should be called at time of deployment
+     */
+    function setRouter(address _router) public onlyOwner {
+        if (router == address(0)) {
+            router = _router;
+            emit RouterSet(_router);
+        }
+    }
+
+    /**
      * @notice Makes solving public if currently restricted
      * @dev Cannot be reversed once made public
      */
@@ -442,6 +460,90 @@ contract Inbox is IInbox, Ownable, Semver {
             }
             results[i] = result;
         }
+        return results;
+    }
+
+    /**
+     * This function generates the intent hash
+     * @param _sourceChainID the chainID of the source chain
+     * @param _chainId the chainId of this chain
+     * @param _inboxAddress the address of this contract
+     * @param _targets The addresses to call
+     * @param _data The calldata to call
+     * @param _expiryTime The timestamp at which the intent expires
+     * @param _nonce The nonce of the calldata. Composed of the hash on the src chain of a global nonce & chainID
+     * @return hash The hash of the intent parameters
+     */
+    function encodeHash(
+        uint256 _sourceChainID,
+        uint256 _chainId,
+        address _inboxAddress,
+        address[] calldata _targets,
+        bytes[] calldata _data,
+        uint256 _expiryTime,
+        bytes32 _nonce
+    ) internal pure returns (bytes32) {
+        return
+            keccak256(
+                abi.encode(
+                    _inboxAddress,
+                    keccak256(
+                        abi.encode(
+                            _sourceChainID,
+                            _chainId,
+                            _targets,
+                            _data,
+                            _expiryTime,
+                            _nonce
+                        )
+                    )
+                )
+            );
+    }
+
+    /**
+     * @notice Fulfills an intent to be proven immediately via Metalayer's router.
+     * @param _expectedHash The hash of the intent as created on the source chain
+     * @param _prover The address of the metalayer prover on the source chain
+     * @return the fulfilled results
+     */
+    function fulfillMetalayerInstant(
+        Route calldata _route,
+        bytes32 _rewardHash,
+        address _claimant,
+        bytes32 _expectedHash,
+        address _prover
+    ) external payable returns (bytes[] memory) {
+        bytes32[] memory hashes = new bytes32[](1);
+        address[] memory claimants = new address[](1);
+        hashes[0] = _expectedHash;
+        claimants[0] = _claimant;
+
+        bytes memory messageBody = abi.encode(hashes, claimants);
+
+        emit MetalayerInstantFulfillment(_expectedHash, _route.source, _claimant);
+
+        bytes[] memory results = _fulfill(
+            _route,
+            _rewardHash,
+            _claimant,
+            _expectedHash
+        );
+
+        IMetalayerRouter(router).dispatch{value: msg.value}(
+            uint32(_route.source),
+            _prover,
+            new ReadOperation[](0),
+            messageBody
+        );
+
+        // TODO: Enable fee support for Metalayer instant fulfillment
+        // uint256 expectedFee = fetchMetalayerFee(...);
+        // if (msg.value > expectedFee) {
+        //     (bool success, ) = payable(msg.sender).call{value: msg.value - expectedFee}("");
+        //     require(success, "Native transfer failed.");
+        // }
+
         return results;
     }
 

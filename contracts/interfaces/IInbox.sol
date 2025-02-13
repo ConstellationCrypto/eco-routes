@@ -2,6 +2,7 @@
 pragma solidity ^0.8.26;
 
 import {ISemver} from "./ISemver.sol";
+import {ReadOperation} from "./IMetalayerRecipient.sol";
 
 import {Route} from "../types/Intent.sol";
 
@@ -89,6 +90,25 @@ interface IInbox is ISemver {
         address indexed _solver,
         bool indexed _canSolve
     );
+
+
+       /**
+     * @notice Emitted when an intent is fulfilled using Metalayer instant proving
+     * @param _hash Hash of the fulfilled intent
+     * @param _sourceChainID ID of the source chain
+     * @param _claimant Address eligible to claim rewards
+     */
+    event MetalayerInstantFulfillment(
+        bytes32 indexed _hash,
+        uint256 indexed _sourceChainID,
+        address indexed _claimant
+    );
+
+    /**
+     * @notice Emitted when Metalayer Router is set
+     * @param _router Address of the router contract
+     */
+    event RouterSet(address indexed _router);
 
     /**
      * @notice Unauthorized solver attempted to fulfill intent
@@ -229,4 +249,18 @@ interface IInbox is ISemver {
         address _prover,
         bytes32[] calldata _intentHashes
     ) external payable;
+
+    /**
+     * Same as above but with the added _prover parameter. This fulfill method is used to fulfill an intent that is proving with the MetalayerProver and wishes to prove immediately.
+     * @param _expectedHash The hash a solver should expect to be generated from the params above.
+     * @dev this is a guardrail to make sure solves dont accidentally solve intents that cannot be proven.
+     * @param _prover The prover against which this intent will be checked
+     */
+    function fulfillMetalayerInstant(
+        Route calldata _route,
+        bytes32 _rewardHash,
+        address _claimant,
+        bytes32 _expectedHash,
+        address _prover
+    ) external payable returns (bytes[] memory);
 }
