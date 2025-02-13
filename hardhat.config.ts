@@ -243,7 +243,7 @@ const config: HardhatUserConfig = {
         network: 'mantaSepolia',
         chainId: 3441006,
         urls: {
-          apiURL: 'https://manta-sepolia.rpc.caldera.xyz/http',
+          apiURL: 'https://manta-sepolia.explorer.caldera.xyz/api',
           browserURL: 'https://manta-sepolia.explorer.caldera.xyz'
         }
       }

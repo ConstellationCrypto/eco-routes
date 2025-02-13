@@ -25,7 +25,7 @@ deployProtocol(
     SepoliaChainConfigs.curtisTestnetChainConfiguration,
     SepoliaChainConfigs.mantaSepoliaChainConfiguration,
   ],
-  { isSolvingPublic: true, deployPre: false },
+  { isSolvingPublic: true, deployPre: true },
 ).catch((error) => {
   console.error(error)
   process.exitCode = 1
