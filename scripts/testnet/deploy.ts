@@ -24,6 +24,7 @@ deployProtocol(
     SepoliaChainConfigs.mantleSepoliaChainConfiguration,
     SepoliaChainConfigs.curtisTestnetChainConfiguration,
     SepoliaChainConfigs.mantaSepoliaChainConfiguration,
+    SepoliaChainConfigs.b3TestnetChainConfiguration,
   ],
   { isSolvingPublic: true, deployPre: true },
 ).catch((error) => {

@@ -57,6 +57,7 @@
     "contractSummary": "slither --print contract-summary . 2>&1 | tee ./docs/slither/contract-summary.txt",
     "Testnet": "-------- Testnet scripts below",
     "deployCurtis": "hardhat run --network curtisTestnet scripts/mainnet/deploy.ts",
+    "deployB3Testnet": "hardhat run --network b3Testnet scripts/testnet/deploy.ts",
     "deployEcoTestnet": "hardhat run --network ecoTestnet scripts/testnet/deploy.ts",
     "deployBaseSepolia": "hardhat run --network baseSepolia scripts/testnet/deploy.ts",
     "deployOptimismSepolia": "hardhat run --network optimismSepoliaBlockscout scripts/testnet/deploy.ts",

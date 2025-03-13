@@ -217,6 +217,8 @@ export function getDeployNetwork(
       return sepoliaNetworks.curtisTestnet
     case 'mantaSepolia':
       return sepoliaNetworks.mantaSepolia
+    case 'b3Testnet':
+      return sepoliaNetworks.b3Testnet
   }
   throw new Error('Network not found')
 }

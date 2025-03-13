@@ -129,6 +129,11 @@ const config: HardhatUserConfig = {
       url: `https://pacific-rpc.sepolia-testnet.manta.network/http`,
       accounts: [DEPLOYER_PRIVATE_KEY],
     },
+    b3Testnet: {
+      chainId: 1993,
+      url: `https://b3-testnet.rpc.caldera.xyz/http`,
+      accounts: [DEPLOYER_PRIVATE_KEY],
+    },
   },
   etherscan: {
     apiKey: {
@@ -149,6 +154,7 @@ const config: HardhatUserConfig = {
       polygonSepolia: process.env.POLYGON_SCAN_API_KEY || '',
       curtisTestnet: 'DummyKey',
       mantaSepolia: 'DummyKey',
+      b3Testnet: 'DummyKey',
     },
     customChains: [
       {
@@ -244,9 +250,17 @@ const config: HardhatUserConfig = {
         chainId: 3441006,
         urls: {
           apiURL: 'https://manta-sepolia.explorer.caldera.xyz/api',
-          browserURL: 'https://manta-sepolia.explorer.caldera.xyz'
-        }
-      }
+          browserURL: 'https://manta-sepolia.explorer.caldera.xyz',
+        },
+      },
+      {
+        network: 'b3Testnet',
+        chainId: 1993,
+        urls: {
+          apiURL: 'https://b3-testnet.explorer.caldera.xyz/api',
+          browserURL: 'https://b3-testnet.explorer.caldera.xyz',
+        },
+      },
     ],
   },
   mocha: {
