@@ -24,6 +24,7 @@ const networkIds: any = {
   polygonSepolia: 80002,
   curtisTestnet: 33111,
   mantaSepolia: 3441006,
+  b3Testnet: 1993,
   11155111: 'sepolia',
   11155420: 'optimismSepolia',
   84532: 'baseSepolia',
@@ -32,6 +33,7 @@ const networkIds: any = {
   5003: 'mantleSepolia',
   33111: 'curtisTestnet',
   3441006: 'mantaSepolia',
+  1993: 'b3Testnet',
 }
 
 // const enshrined: any = {
@@ -307,6 +309,32 @@ const networks: Record<any, DeployDisputeNetworkConfig> = {
     hyperlaneMailboxAddress: '0xFD9e12938e57bF87980e474116B11C39Cea062Af',
     metalayerRouterAddress: '0xC41de2A4243e4304813c36Cd8952366DCb36106a',
     gasLimit: 30000000,
+    proving: {
+      mechanism: provingMechanisms.cannon,
+      l1BlockAddress: '0x4200000000000000000000000000000000000015',
+      l2l1MessageParserAddress: '0x4200000000000000000000000000000000000016',
+      outputRootVersionNumber: 0,
+      settlementChain: {
+        network: 'sepolia',
+        id: networkIds.sepolia,
+        contract: '0x05F9613aDB30026FFd634f38e5C4dFd30a197Fa1',
+      },
+    },
+  },
+  b3Testnet: {
+    network: 'b3Testnet',
+    chainId: networkIds.b3Testnet,
+    proverContractAddress: '',
+    hyperProverContractAddress: '',
+    intentSourceAddress: '',
+    inboxAddress: '',
+    intentSource: {
+      counter: 0,
+    },
+    usdcAddress: '0x100E080d2Dea6d46D00454b373a5b08909eD9306',
+    hyperlaneMailboxAddress: '0xa660DC3116C2d826CA46eA593Ac6Ae4c06471d7d',
+    metalayerRouterAddress: '0xC41de2A4243e4304813c36Cd8952366DCb36106a',
+    gasLimit: 20000000,
     proving: {
       mechanism: provingMechanisms.cannon,
       l1BlockAddress: '0x4200000000000000000000000000000000000015',

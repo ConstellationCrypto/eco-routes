@@ -93,3 +93,15 @@ export const mantaSepoliaChainConfiguration: DeployNetworkConfig = {
     finalityDelaySeconds: 0,
   },
 }
+
+export const b3TestnetChainConfiguration: DeployNetworkConfig = {
+  chainId: networks.b3Testnet.chainId, // chainId
+  chainConfiguration: {
+    provingMechanism: networks.b3Testnet.proving.mechanism, // provingMechanism
+    settlementChainId: networks.b3Testnet.proving.settlementChain.id, // settlementChainId
+    settlementContract: networks.b3Testnet.proving.settlementChain.contract, // settlementContract e.g DisputGameFactory or L2OutputOracle.
+    blockhashOracle: networks.b3Testnet.proving.l1BlockAddress, // blockhashOracle
+    outputRootVersionNumber: networks.b3Testnet.proving.outputRootVersionNumber, // outputRootVersionNumber
+    finalityDelaySeconds: 0,
+  },
+}

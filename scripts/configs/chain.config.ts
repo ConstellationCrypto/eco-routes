@@ -11,6 +11,7 @@ import {
   optimismSepoliaChainConfiguration,
   curtisTestnetChainConfiguration,
   mantaSepoliaChainConfiguration,
+  b3TestnetChainConfiguration,
 } from './sepolia.config'
 
 export const SepoliaChainConfigs = {
@@ -20,7 +21,8 @@ export const SepoliaChainConfigs = {
   arbitrumSepoliaChainConfiguration,
   mantleSepoliaChainConfiguration,
   curtisTestnetChainConfiguration,
-  mantaSepoliaChainConfiguration
+  mantaSepoliaChainConfiguration,
+  b3TestnetChainConfiguration,
 }
 
 export const MainnetChainConfigs = {
