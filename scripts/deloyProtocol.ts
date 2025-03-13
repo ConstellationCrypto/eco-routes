@@ -75,9 +75,12 @@ export async function deployProtocol(
   options: DeployProtocolOptions = { isSolvingPublic: true },
 ) {
   const networkName = deployNetwork.network
-  const salt = ethers.keccak256(
-    ethers.toUtf8Bytes(protocolDeploy.initialSalt + deployNetwork.pre || ''),
-  )
+  const salt = deployNetwork.pre
+    ? '0x5a9d184d91fa474f454a0679a029a41d5ced506017f44886f74d6cfd1a15b6da'
+    : '0xc7eac99e2aad3977bc48d1980a044fd93b66eefe4e13b45fede8fae0cb73109c'
+  // const salt = ethers.keccak256(
+  //   ethers.toUtf8Bytes(protocolDeploy.initialSalt + deployNetwork.pre || ''),
+  // )
 
   const [deployer] = await ethers.getSigners()
   console.log('Deploying contracts with the account:', deployer.address)
