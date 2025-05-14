@@ -94,7 +94,7 @@ contract Deploy is Script {
         vm.stopBroadcast();
 
         // Write deployment results to file
-        writeDeploymentData(ctx);
+        // writeDeploymentData(ctx);
     }
 
     // Separate function to handle writing deployment data to file
