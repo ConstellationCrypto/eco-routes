@@ -12,6 +12,7 @@ import {ICreate3Deployer} from "../contracts/tools/ICreate3Deployer.sol";
 import {Inbox} from "../contracts/Inbox.sol";
 import {IntentSource} from "../contracts/IntentSource.sol";
 import {HyperProver} from "../contracts/prover/HyperProver.sol";
+import {MetaProver} from "../contracts/prover/MetaProver.sol";
 
 contract Deploy is Script {
     bytes constant CREATE3_DEPLOYER_BYTECODE =
@@ -55,8 +56,13 @@ contract Deploy is Script {
         // Initialize the deployment context struct with environment variables
         DeploymentContext memory ctx;
         ctx.salt = vm.envBytes32("SALT");
+<<<<<<< HEAD
         ctx.mailbox = vm.envOr("MAILBOX", address(0));
         ctx.router = vm.envOr("ROUTER", address(0));
+=======
+        ctx.mailbox = vm.envOr("MAILBOX_CONTRACT", address(0));
+        ctx.router = vm.envOr("ROUTER_CONTRACT", address(0));
+>>>>>>> origin/main
         ctx.deployFilePath = vm.envString("DEPLOY_FILE");
         ctx.deployer = vm.rememberKey(vm.envUint("PRIVATE_KEY"));
         bool hasMailbox = ctx.mailbox != address(0);
@@ -67,9 +73,11 @@ contract Deploy is Script {
         if (hasMailbox) {
             ctx.hyperProverSalt = getContractSalt(ctx.salt, "HYPER_PROVER");
         }
+
         if (hasRouter) {
             ctx.metaProverSalt = getContractSalt(ctx.salt, "META_PROVER");
         }
+
         vm.startBroadcast();
 
         // Deploy deployer if it hasn't been deployed
@@ -215,7 +223,7 @@ contract Deploy is Script {
         );
 
         bytes memory metaProverBytecode = abi.encodePacked(
-            type(HyperProver).creationCode,
+            type(MetaProver).creationCode,
             ctx.metaProverConstructorArgs
         );
 
