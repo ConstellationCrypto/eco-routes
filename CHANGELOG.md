@@ -1,3 +1,75 @@
+## [2.1.19](https://github.com/eco/eco-routes/compare/v2.1.18...v2.1.19) (2025-05-23)
+
+
+### Bug Fixes
+
+* dont attempt verify on deploy ([aaa3cf0](https://github.com/eco/eco-routes/commit/aaa3cf0e4e1a9000dd40d0819aa759820c761431))
+
+## [2.1.18](https://github.com/eco/eco-routes/compare/v2.1.17...v2.1.18) (2025-05-23)
+
+
+### Bug Fixes
+
+* deploy to not include failed chains ([e3fd165](https://github.com/eco/eco-routes/commit/e3fd16547dc580609abd4d9c85fef5e250aad58a))
+* trigger patch release ([625915f](https://github.com/eco/eco-routes/commit/625915fdb5d7b6ace386accb929b0ffb52572f7b))
+
+## [2.1.17](https://github.com/eco/eco-routes/compare/v2.1.16...v2.1.17) (2025-05-23)
+
+
+### Bug Fixes
+
+* add a demo deployMulticall3 file ([ac92e82](https://github.com/eco/eco-routes/commit/ac92e82550485a8728bb93705f5d24b95d343cd6))
+* trigger patch release ([7913c96](https://github.com/eco/eco-routes/commit/7913c96391700804670f93ac7a12e83517db3467))
+* trigger patch release ([5c7f228](https://github.com/eco/eco-routes/commit/5c7f22859a5f9861e05fcbb7409312a7b6b902fb))
+* trigger patch release ([fd3dd83](https://github.com/eco/eco-routes/commit/fd3dd8394a37d4fb6669fee3fe6a149ad1ab13ff))
+* trigger patch release ([9abae4c](https://github.com/eco/eco-routes/commit/9abae4cf82393f75ec100f2427814c3323ace7e4))
+* trigger patch release ([f639160](https://github.com/eco/eco-routes/commit/f6391608f9dde0e016d103c7f1b8c95f5683cf07))
+* trigger patch release ([7ae5a38](https://github.com/eco/eco-routes/commit/7ae5a38f3c48493dc92fac98c45512bbf14fd61c))
+
+## [2.1.16](https://github.com/eco/eco-routes/compare/v2.1.15...v2.1.16) (2025-05-22)
+
+
+### Bug Fixes
+
+* trigger patch release ([81956b3](https://github.com/eco/eco-routes/commit/81956b338000c3088beb878f5b823b45af926b28))
+
+## [2.1.15](https://github.com/eco/eco-routes/compare/v2.1.14...v2.1.15) (2025-05-22)
+
+
+### Bug Fixes
+
+* redeploy worldcoin with correct rpc ([1453dd6](https://github.com/eco/eco-routes/commit/1453dd67091e71029d6035bbf93e5c0210a6b339))
+* trigger patch release ([5ee77a9](https://github.com/eco/eco-routes/commit/5ee77a947adce8040262da21a916e2c45cee0f85))
+* trigger patch release ([d593aa2](https://github.com/eco/eco-routes/commit/d593aa210ad97002fc194fb0483c281c72135bec))
+
+## [2.1.14](https://github.com/eco/eco-routes/compare/v2.1.13...v2.1.14) (2025-05-22)
+
+
+### Bug Fixes
+
+* adding blockscout ([49e6ee6](https://github.com/eco/eco-routes/commit/49e6ee65681229f6d8ce6f83868ecf8cd03c74d4))
+* decrease retries and specify blockscout, set hardhat to compile on the same solc 0f 0.8.27 ([692e7fa](https://github.com/eco/eco-routes/commit/692e7faffc51077a18fa359e89d30413d1febc7a))
+* explicit beta branch checkout ([888ced5](https://github.com/eco/eco-routes/commit/888ced50c4c45b1440f5d37f43063e440c2e16fb))
+* trigger patch release ([17d2c57](https://github.com/eco/eco-routes/commit/17d2c57e5ca496e10c53e4be6af51ac80fe35b36))
+* trigger patch release ([c1e14bd](https://github.com/eco/eco-routes/commit/c1e14bdef886a2d533fe87f64987bbd9cbaab4b5))
+
+## [2.1.13](https://github.com/eco/eco-routes/compare/v2.1.12...v2.1.13) (2025-05-22)
+
+
+### Bug Fixes
+
+* trigger patch release ([8849e38](https://github.com/eco/eco-routes/commit/8849e38a13b8fa8f806cdb369da3093f99c7d791))
+* trigger patch release ([601d8aa](https://github.com/eco/eco-routes/commit/601d8aa155bef52edf7359ad40d3a9db57dc3e7f))
+* trigger patch release ([66773c5](https://github.com/eco/eco-routes/commit/66773c51fc9745c69ba8e6f4ede3dc77fbac3659))
+* trigger patch release ([1143a1d](https://github.com/eco/eco-routes/commit/1143a1db97323e022b7af6d9d21586d271ae02d7))
+
+## [2.1.12](https://github.com/eco/eco-routes/compare/v2.1.11...v2.1.12) (2025-05-20)
+
+
+### Bug Fixes
+
+* update default to beta ([23ad7c3](https://github.com/eco/eco-routes/commit/23ad7c3be4de7b5e2b5070040687bfdf034819cb))
+
 ## [2.1.11](https://github.com/eco/eco-routes/compare/v2.1.10...v2.1.11) (2025-05-20)
 
 
