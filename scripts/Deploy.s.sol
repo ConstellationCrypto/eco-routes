@@ -214,7 +214,8 @@ contract Deploy is Script {
         ctx.metaProverConstructorArgs = abi.encode(
             ctx.router,
             ctx.inbox,
-            provers
+            provers,
+            100000
         );
 
         bytes memory metaProverBytecode = abi.encodePacked(
